@@ -1,0 +1,14 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% The subroutine for computing the divergent of a vector field
+% over the image domain [1,N]x[1,N] with Neumann BCs
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function divGU = DivergenceU(ux,uy)
+    h = 1;
+    [m,n] = size(ux);
+    a = ux;
+    b = uy;
+     a = [zeros(1,m);a];
+    ax = (a(2:n+1,:)-a(1:n,:))/h;
+     b = [zeros(n,1) b];
+    by = (b(:,2:m+1)-b(:,1:m))/h;
+    divGU = ax+by;

@@ -1,0 +1,2 @@
+addpath('denosing_port')
+image = rgb2gray(imr)
