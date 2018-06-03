@@ -19,7 +19,7 @@ function image = ExplicitTimeMarchingDenoiser(original_image,lambda,beta,tau,tol
     original_res_norm = norm(original_res(:),2);
     while i < max_iteration && image_norm > tolerent && res_norm > tolerent 
         last_image = image;
-        res = TotalVariation(image,beta)+(lambda.*(image - original_image));
+        res = TotalVariation(image,beta)+(lambda*(image - original_image));
         image = image+tau*res;
         res_norm = norm(res(:),2) / original_res_norm;
         image_norm = norm(last_image(:) - image(:),2);

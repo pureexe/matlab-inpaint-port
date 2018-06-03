@@ -4,9 +4,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function divGU = DivergenceU(ux,uy)
     h = 1;
-    [height,width] = size(ux);
-    ux = [zeros(1,width);ux];
-    ax = (ux(2:height+1,:)-ux(1:height,:))/h;
-    uy = [zeros(height,1) uy];
-    by = (uy(:,2:width+1)-uy(:,1:width))/h;
+    [m,n] = size(ux);
+    ux = [zeros(1,m);ux];
+    ax = (ux(2:n+1,:)-ux(1:n,:))/h;
+    uy = [zeros(n,1) uy];
+    by = (uy(:,2:m+1)-uy(:,1:m))/h;
     divGU = ax+by;

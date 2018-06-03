@@ -4,9 +4,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 function [ux,uy] = GradiantU(u) 
     h = 1;
-    [height,width] = size(u);
-    %disp(size(diff(u)))
-    %disp(width)
-    ux = [diff(u);zeros(1,width)]/h;
+    [m,n] = size(u);
+    ux = [diff(u);zeros(1,m)]/h;
     uy = diff(u')';
-    uy = ([uy zeros(height,1)])/h;
+    uy = ([uy zeros(n,1)])/h;
+
+
