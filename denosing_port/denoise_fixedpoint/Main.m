@@ -16,11 +16,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 clc;clear;close all;
 z = double(rgb2gray(imread('_noisy_rectangle.png')));
-alpha = 0.02;
+lambda = 0.02;
 beta = 1.0e-4;
 omega = 1.6;
 GSmax = 3;
 IMAX = 1000;
 esp = 1.0e-6;
-denoised_image = FixedPointDenoiser(z,alpha,beta,omega,GSmax,esp,IMAX);
+denoised_image = FixedPointDenoiser(z,lambda,beta,omega,GSmax,esp,IMAX);
 imshow(uint8(denoised_image))
