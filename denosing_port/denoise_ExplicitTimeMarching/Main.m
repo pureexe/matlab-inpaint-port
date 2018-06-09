@@ -1,6 +1,5 @@
 clc;clear;
-addpath('denosing_port')
-image = rgb2gray(imread('images/_noisy_rectangle.png'));
+image = rgb2gray(imread('_noisy_rectangle.png'));
 image = double(image);
 lambda = 1.0e-4;
 beta = 1.0e-4;

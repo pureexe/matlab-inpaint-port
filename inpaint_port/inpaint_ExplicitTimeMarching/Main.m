@@ -14,11 +14,4 @@ lambda = lambda*inpaint_domain;
 denoised_image = image;
 [denoised_image,i] = ExplicitTimeMarchingDenoiser(image,lambda,beta,tau,...
     tolerent,max_iteration,rec,KJ);
-
-%imshow(uint8(denoised_image));       
-        %colormap gray;
-        %imagesc(denoised_image);
-        %axis square
-        %title('Denoised image')
-        %xlabel(['i = ',num2str(i)]);
-        %drawnow
+figure;mesh(denoised_image);
