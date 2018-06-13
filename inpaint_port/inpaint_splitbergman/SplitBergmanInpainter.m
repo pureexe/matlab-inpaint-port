@@ -13,6 +13,5 @@ function u = SplitBergmanInpainter(original_image,lambda,theta,omega,GSiter,tole
         b = b + Gradiant(u) - w; % update b
         image_norm = norm(last_image(:)-u(:),2)/norm(u(:),2);
         i = i + 1;
-        disp(i);
     end
 end
