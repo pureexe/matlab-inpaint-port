@@ -13,7 +13,7 @@ omega = 1.6;
 GSiter = 3;
 % apply lambda
 lambda = lambda*inpaint_domain;
-
+tic
 inpainted_image = SplitBergmanInpainter(image,lambda,theta,omega,GSiter,tolerant,max_iteration);
-
+toc
 mesh(inpainted_image);
