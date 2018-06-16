@@ -9,8 +9,8 @@ inpaint_domain = double(inpaint_domain);
 lambda = 25;
 theta_1 = 0.2; 
 theta_2 = 0.2;
-tolerant = 1e-4;
-max_iteration = 50;
+tolerant = 1e-6;
+max_iteration = 100;
 % apply lambda
 lambda = lambda*inpaint_domain;
 %variable configuration
