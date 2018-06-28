@@ -2,8 +2,8 @@ function u = HighOrderSplitBergmanInpainter(original_image,lambda,theta_1,theta_
     image_norm = 99999999;
     i = 0;
     u = original_image;
-    u_tilde = original_image;
     [height,width] = size(original_image);
+    u_tilde = zeros(height,width);
     b_u = zeros(height,width);
     b_w = zeros(height*2,width);
     while image_norm > tolerant && i < max_iteration
