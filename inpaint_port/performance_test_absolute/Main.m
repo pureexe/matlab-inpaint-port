@@ -11,7 +11,8 @@ inpaint_domain = double(inpaint_domain);
 
 %variable configuration
 lambda = 25;
-theta = 1/200;
+beta = 1/200;
+theta = 1e-4;
 tolerant = 1e-6;
 max_iteration = 1000;
 omega = 1.85;
@@ -19,17 +20,8 @@ GSiter = 2;
  beta = 1.0e-6;
 lambda = lambda*inpaint_domain;
 
-%FIX POINT
-disp('Fixed Point')
-tic
-inpainted_fixedpoint_image = FixedPointInpainter(image,lambda,theta,omega,GSiter,tolerant,max_iteration);
-disp('RMSE ')
-disp(sqrt(mean((inpainted_fixedpoint_image(:) - original_image(:)).^2))); 
-disp('PSNR')
-disp(psnr(inpainted_fixedpoint_image,original_image))
-toc
 %Split Bergman
-disp('Split Bergman (norm)')
+disp('Split Bergman (absolute)')
 tic
 inpainted_splitbergman_image = SplitBergmanInpainter(image,lambda,theta,omega,GSiter,tolerant,max_iteration);
 disp('RMSE ')

@@ -1,0 +1,11 @@
+function result = Divergence(w,b)
+    T = (w-b);
+    [total_height,width] = size(T);
+    height = total_height/2;
+    T1 = T(1:height,:);
+    T2 = T(height+1:total_height,:);
+    T1_previous = [T1(height,:); T1(1:height-1,:)];
+    T2_previous = [T2(:,width) T2(:,1:width-1)];
+    Tx = (T1-T1_previous); % backward difference
+    Ty = (T2-T2_previous);
+    result = Tx + Ty;
