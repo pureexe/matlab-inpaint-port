@@ -7,8 +7,8 @@ inpaint_domain = double(inpaint_domain);
 
 %variable configuration
 lambda = 25;
-theta_1 = 1e-4; 
-theta_2 = 1e-4;
+theta_1 =  1e-4; 
+theta_2 = 10;
 tolerant = 1e-6;
 max_iteration = 1000;
 % apply lambda
