@@ -11,7 +11,7 @@ function u = uSolver(u,w,original_image,b,lambda,theta)
             u_above = Clamper(u,i-1,j);
             u_under = Clamper(u,i+1,j);
             lapacian = (1/h^2)*(u_left+u_right+u_above+u_under - 4*u(i,j));
-            if lambda(i,j) == 0
+            if lambda(i,j) == 0 %avoid divied by zero
                 coefficient = 0;
             else
                 coefficient = theta / lambda(i,j);
