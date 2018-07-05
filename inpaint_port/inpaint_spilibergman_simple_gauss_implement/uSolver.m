@@ -10,13 +10,14 @@ function u = uSolver(u,w,original_image,b,lambda,theta)
             u_right = Clamper(u,i,j+1);
             u_above = Clamper(u,i-1,j);
             u_under = Clamper(u,i+1,j);
-            lapacian = (1/h^2)*(u_left+u_right+u_above+u_under - 4*u(i,j));
+            lapacian = (1/h^2)*(u_left+u_right+u_above+u_under);
             if lambda(i,j) == 0 %avoid divied by zero
                 coefficient = 0;
             else
                 coefficient = theta / lambda(i,j);
             end            
-            u(i,j) = original_image(i,j) - (coefficient * (divergence(i,j)  -  lapacian)); 
+            buffer = original_image(i,j) - (coefficient * (divergence(i,j)  -  lapacian)); 
+            u(i,j) = (lambda(i,j)*h^2)/(lambda(i,j)*h^2 - 4*theta) * buffer;
         end
     end
 end
