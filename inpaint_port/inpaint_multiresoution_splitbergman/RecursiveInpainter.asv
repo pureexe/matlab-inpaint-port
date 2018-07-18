@@ -1,0 +1,22 @@
+function result_image = RecursiveInpainter(original_image,inpainted_domain,lambda,...
+    theta,tolerant,max_iteration,max_step,current_step)
+    fprintf("in step: %d \n",current_step);
+    if current_step < max_step
+        half_image = imresize(original_image,0.5);
+        assignin('base',sprintf('half_image_%d',current_step),half_image);
+        assignin('base',sprintf('half_image_%d',current_step),half_image);
+        half_domain = imresize(inpainted_domain,0.5) < 1;
+        half_domain = half_domain * lambda;
+        half_result = RecursiveInpainter(half_image,half_domain,lambda,...
+            theta,tolerant,max_iteration,max_step,current_step+1);
+        [height,width] = size(original_image);
+        upscale_result = imresize(half_result,[height width]);
+        toinpaint_image = MergeResult(original_image,inpainted_domain,upscale_result);
+    else
+        toinpaint_image = original_image;
+    end
+    inpainted_lambda =  inpainted_domain < 1;
+    inpainted_lambda = inpainted_lambda*lambda;
+    result_image = SplitBergmanInpainter(toinpaint_image,inpainted_lambda,theta,tolerant,1,1,max_iteration);
+    fprintf("out step: %d \n",current_step);
+end
