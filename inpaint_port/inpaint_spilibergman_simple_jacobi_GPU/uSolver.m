@@ -1,7 +1,6 @@
 % solve u subproblem using neuman bondary condition
 % this code using clamping tecnique to implement neuman bondary condition
 function u = uSolver(u,w,original_image,b,lambda,theta,max_gauss_seidel)
-    % h = 1; % discrete lapacian
     divergence = Divergence(w-b);    
     for k = 1:max_gauss_seidel
         lapacian = imfilter(u,[0,1,0;1,0,1;0,1,0],'replicate');
