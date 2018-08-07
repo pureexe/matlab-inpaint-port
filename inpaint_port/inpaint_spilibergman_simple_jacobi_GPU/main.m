@@ -14,15 +14,15 @@ inpaint_domain = double(inpaint_domain);
 %% ** section 2:** testing
 lambda = 250/1;
 theta = 5; % in publication use little gamma insted
-max_gauss_seidel = 10;
+max_jacobi_loop = 10;
 tolerant = 1e-6;
-max_iteration = 1000; % force stop compute if iteration exceed to prevent forever loop
+max_iteration = 10000; % force stop compute if iteration exceed to prevent forever loop
 
 %merge lambda with inpaint domain
 lambda = lambda * inpaint_domain;
 
 tic;
-inpainted_splitbergman_image = SplitBergmanInpainter(image,lambda,theta,tolerant,max_gauss_seidel,max_iteration);
+inpainted_splitbergman_image = SplitBergmanInpainter(image,lambda,theta,tolerant,max_jacobi_loop,max_iteration);
 toc %processed time measurement
 
 disp('RMSE ')
