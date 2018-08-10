@@ -15,13 +15,11 @@ function u = SplitBergmanInpainter(original_image,lambda,theta,tolerant,max_gaus
     [height,width] = size(original_image);
     b = zeros(height*2,width,'gpuArray');
     w = zeros(height*2,width,'gpuArray');
-    prev_norm = 0;
     while image_norm > tolerant && i < max_iteration
         last_image = u;
         w = wSolver(u,b,theta); %solve w        
         u = uSolver(u,w,original_image,b,lambda,theta,max_gauss_seidel); %solve u
         b = b + Gradient(u) - w; % update b
-        prev_norm = image_norm;
         image_norm = norm(last_image(:)-u(:),2)/norm(u(:),2);
         i = i + 1;
     end
