@@ -2,8 +2,9 @@
 % clear all previous run variable and windows
 clc;clear;close all;
 %create image
+[image,inpaint_domain] =  CreateInpaintBar(16,16,5,3,1);
 %[image,inpaint_domain] =  CreateInpaintBar(64,64,20,10,2);
-[image,inpaint_domain] =  CreateInpaintBar(256,256,80,40,8);
+%[image,inpaint_domain] =  CreateInpaintBar(256,256,80,40,8);
 %[image,inpaint_domain] =  CreateInpaintBar(512,512,160,80,16);
 %change image domain [0 - 255] to [0 - 1]
 original_image = double(image+inpaint_domain)/255;

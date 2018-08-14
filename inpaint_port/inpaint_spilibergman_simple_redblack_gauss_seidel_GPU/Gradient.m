@@ -5,5 +5,6 @@ function G = Gradient(u)
     ux = [diff(u);zeros(1,height)]/h;
     uy = diff(u')';
     uy = ([uy zeros(width,1)])/h;
+    %[uy,ux] = imgradientxy(u,'intermediate');
     G = [ux;uy];
 end
