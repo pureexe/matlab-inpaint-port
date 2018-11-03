@@ -29,4 +29,5 @@ function [image]=FixedPointDenoiser(original_image,lambda,beta,omega,GSiter,tole
         image_norm = norm(last_image(:)-image(:),2)/norm(image(:),2); 
         i = i + 1;
     end
+    disp("Processed in "+i+" loops")
 end

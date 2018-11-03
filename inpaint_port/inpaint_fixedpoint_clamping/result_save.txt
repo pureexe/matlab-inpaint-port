@@ -1,0 +1,6 @@
+Elapsed time is 6.932907 seconds.
+PSNR
+   42.6631
+
+SSIM
+    0.9869

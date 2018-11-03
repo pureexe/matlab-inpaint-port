@@ -12,7 +12,7 @@ inpaint_domain = double(inpaint_domain);
 %% ** section 2:** testing
 lambda = 250/1;
 theta = 0.1; % in publication use little gamma insted
-max_gauss_seidel = 1;
+max_gauss_seidel = 10;
 omega = 1.3;
 tolerant = 5*1e-4;
 max_iteration = 1000; % force stop compute if iteration exceed to prevent forever loop

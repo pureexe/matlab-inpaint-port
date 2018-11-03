@@ -1,0 +1,9 @@
+processed with 277 loopsElapsed time is 1.863663 seconds.
+RMSE 
+    0.0060
+
+PSNR
+   44.4275
+
+SSIM
+    0.9965

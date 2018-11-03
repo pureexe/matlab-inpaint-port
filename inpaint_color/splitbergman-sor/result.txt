@@ -1,0 +1,11 @@
+processed with 45 loops
+processed with 57 loops
+processed with 56 loops
+Elapsed time is 6.717753 seconds.
+PSNR
+   37.2374
+
+SSIM
+    0.9976
+
+>> 
